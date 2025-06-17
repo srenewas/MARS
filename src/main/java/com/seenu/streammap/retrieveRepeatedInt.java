@@ -18,9 +18,6 @@ public class retrieveRepeatedInt {
         System.out.println(set2);
 
 
-
-
-
         System.out.println("*************Bit_Complicate************");
         Set<Integer> duplicates = Arrays.stream(a)
                 .boxed() // Convert int to Integer

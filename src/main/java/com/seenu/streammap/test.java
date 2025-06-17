@@ -1,19 +1,26 @@
 package com.seenu.streammap;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class test {
     public static void main(String[] args) {
-        List<String> list = Arrays.asList("hello", "world");
+        List<String> list = Arrays.asList("Sujji", "vasu","sree");
         //list.stream().map(a->a.toUpperCase()).forEach(System.out::println);
        // list.stream().filter(d->d.startsWith("h")).map(d->d.toUpperCase()).forEach(System.out::println);
        // list.stream().filter(f->f.startsWith("h")).map(f->f.length()).forEach(System.out::println);
        // list.stream().filter(f->f.startsWith("h")).map(f->f.toLowerCase()).forEach(System.out::println);
-        //list.stream().map(d->d.toUpperCase()).forEach(System.out::println);
+        //list.stream().map(d-
+
+        List<String> l = new ArrayList<>();
+        l.add("sree");
+        l.add("sujji");
+        l.add("vasu");
+
+        Collections.swap(l,1,0);
+        System.out.println(l);
 
         int[] a ={5,7,3,2,7,8,22,44,56,77,2,5};
         //Arrays.stream(a).filter(c->c%2!=0).forEach(System.out::println);
@@ -40,6 +47,21 @@ public class test {
 
 
 
+        String ss1 = "seenu";
+       String sd = IntStream.range(0,ss1.length())
+                .mapToObj(i->{char c = ss1.charAt(i);
+                    if (i==0){
+                        return Character.toString(Character.toUpperCase(c));
+                    }else{
+                        return Character.toString(c);
+                    }
+
+                })
+                .collect(Collectors.joining());
+        System.out.println(sd);
+
+
+
 
 
 
@@ -57,6 +79,10 @@ public class test {
         System.out.println(s);
         String sss = new StringBuilder(s).reverse().toString();
         System.out.println(sss);
+
+
+        int[] aa = {2,5,7,1,3,2};
+        Arrays.stream(aa).average().stream().forEach(System.out::println);
 
 
     }

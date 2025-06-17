@@ -6,14 +6,13 @@ import java.util.Map;
 import java.util.Objects;
 
 public class test {
-    public static void main(String[] args) throws NullPointerException {
+    public static void main(String[] args) {
         Map<String, Employee> map = new HashMap<>();
         map.put("Emp1",new Employee(101,"srinivas",65000.00,"Java"));
-        map.put("Emp2",new Employee(102,"sujatha",75000.00,"Java"));
+        map.put("Emp2",new Employee(102,"sujatha",75000.00,"Automation"));
         map.put("Emp3",new Employee(103,"buddodu",89000.00,"Java"));
         map.put("Emp4",new Employee(104,"sujju",6000.00,"Linux"));
-        map.put("Emp5",new Employee(105,"Danny",65000.00,"Linux"));
-        //map.put("Emp5",new Employee(106,null,65000.00,"Linux"));
+        map.put("Emp5",new Employee(105,"Danny",65000.00,"Devops"));
 
         System.out.println("*********Values*********");
         map.entrySet().stream().map(s->s.getValue()).forEach(System.out::println);
@@ -47,10 +46,29 @@ public class test {
         System.out.println("\n*********Filter_Based_On_Department*********");
         map.values().stream().filter(e->e.getDepartment().contains("Java")).forEach(System.out::println);
 
+        System.out.println("\n*********Sorting_Based_On_Department*********");
+        map.values().stream().sorted(Comparator.comparing(Employee::getDepartment)).forEach(System.out::println);
+
+        System.out.println("\n*********Compute the Employee Object*********");
+
+        map.computeIfPresent("Emp4",(key,emp)-> {emp.setSalary(emp.getSalary()+1250);return emp;});
+        map.compute("Emp1",(key, emp)->{
+            if(emp!=null){
+                emp.setDepartment("FullStack");
+                emp.setSalary(emp.getSalary()+2000);
+            }
+            return emp;
+        });
+
+        map.computeIfAbsent("Emp6",key-> new Employee(106,"Suhas",60000.0,"Minitor"));
+
+        map.forEach((key,value)->System.out.println(key+" ==> "+value));
+
+
         /*Set<String> set = map.keySet();
         //System.out.println(set);                // Only sop
         set.forEach(s-> System.out.println(s)); // Using Lambda expression
-        set.forEach(System.out::println);       // Using method refference
+        set.forEach(System.out::println);       // Using method reference
 
         Collection<Employee> cl = map.values();
         //System.out.println(cl);

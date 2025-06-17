@@ -1,5 +1,6 @@
 package com.seenu.streammap;
 
+import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -16,13 +17,6 @@ public class Reverse_String {
                 .map(String::valueOf)                   // Convert each char to String with String::valueOf.
                 .collect(Collectors.joining());         // Use Collectors.joining() to create the final reversed string.
         System.out.println(str);
-
-
-        String s3 = "seenu";
-        IntStream.range(0,s3.length())
-                .mapToObj(c->s3.charAt(s3.length()-1-c))
-                .map(String::valueOf)
-                .forEach(System.out::println);
 
     }
 }

@@ -12,6 +12,7 @@ public class SortString {
 
 
         String str = "seenu";
-        str.chars().mapToObj(c->(char)c).sorted().forEach(System.out::println);
+        String se = str.chars().mapToObj(c->(char)c).sorted().map(String::valueOf).collect(Collectors.joining());
+        System.out.println(se);
     }
 }

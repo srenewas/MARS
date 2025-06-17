@@ -2,6 +2,8 @@ package com.seenu.streammap;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /*🧠 Explanation:
         s.chars() → stream of character codes (int).
@@ -21,6 +23,16 @@ public class retrieveRepeatedString {
 
         s.chars().mapToObj(c->(char) c).filter(n-> !set1.add(n)).forEach(set2::add);
         System.out.println(set2);
+
+        String s2 = "seenunuuu";
+        long lo =  s2.chars()
+                .mapToObj(c->(char)c)
+                .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(e->e.getValue()>1)
+                .count();
+        System.out.println(lo);
 
 
 
