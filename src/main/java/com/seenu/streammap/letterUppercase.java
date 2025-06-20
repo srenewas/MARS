@@ -24,7 +24,8 @@ public class letterUppercase {
 
         String s4 = "seenu";
         String result = IntStream.range(0,s4.length())
-                .mapToObj(i -> {char c = s4.charAt(i);
+                .mapToObj(i -> {
+                    char c = s4.charAt(i);
                     if (i == 2) {
                         return Character.toString(Character.toUpperCase(c));
                     } else {

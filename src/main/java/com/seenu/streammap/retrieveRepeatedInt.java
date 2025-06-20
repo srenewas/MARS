@@ -15,7 +15,8 @@ public class retrieveRepeatedInt {
         Set<Integer> set2 = new HashSet<>();
        // Arrays.stream(a).filter(f->!set1.add(f)).boxed().forEach(System.out::println);
         Arrays.stream(a).filter(n->!set1.add(n)).boxed().forEach(set2::add);
-        System.out.println(set2);
+        System.out.println(set2);        // It will print the values of Set element
+        System.out.println(set2.size()); // It will print the count of Set elements
 
 
         System.out.println("*************Bit_Complicate************");

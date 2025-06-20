@@ -6,7 +6,6 @@ class MyRunnable implements Runnable{
         for (int i=1;i<100;i++){
             System.out.println("User Runnable Thread: "+i);
         }
-
     }
 }
 public class RunnableExampleAsync {

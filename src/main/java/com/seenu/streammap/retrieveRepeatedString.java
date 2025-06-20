@@ -1,6 +1,7 @@
 package com.seenu.streammap;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -37,8 +38,8 @@ public class retrieveRepeatedString {
 
 
 
-
-        /*Set<Character> set = s.chars()
+        String s3 = "seenunuuu";
+        Set<Character> set = s3.chars()
                 .mapToObj(c->(char) c)
                 .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
                 .entrySet()
@@ -46,6 +47,18 @@ public class retrieveRepeatedString {
                 .filter(e->e.getValue()>1)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toSet());
-        System.out.println(set);  //Repeated characters: [e, u, n]*/
+        System.out.println(set);  //Repeated characters: [e, u, n]
+
+
+        String s4 = "seenunuuu";
+        Set<Character> set12 = s4.chars()
+                .mapToObj(c->(char) c)
+                .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(e->e.getValue()==1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet());
+        System.out.println(set12);  //Repeated characters: [s]
     }
 }

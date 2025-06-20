@@ -1,9 +1,7 @@
 package com.seenu.map;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class test {
     public static void main(String[] args) {
@@ -49,8 +47,16 @@ public class test {
         System.out.println("\n*********Sorting_Based_On_Department*********");
         map.values().stream().sorted(Comparator.comparing(Employee::getDepartment)).forEach(System.out::println);
 
-        System.out.println("\n*********Compute the Employee Object*********");
+        System.out.println("\n*********Salary in descending order*********");
+        map.values().stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).forEach(System.out::println);
+        map.values().stream().sorted(Comparator.comparing(Employee::getName).reversed()).forEach(System.out::println);
 
+        System.out.println("\n*********Grouping by department*********");
+        Map<String, List<Employee>> m = map.values().stream().collect(Collectors.groupingBy(Employee::getDepartment));
+        System.out.println(m);
+        m.forEach((k,v)->{System.out.println(k+":"+v);});
+
+        System.out.println("\n*********Compute the Employee Object*********");
         map.computeIfPresent("Emp4",(key,emp)-> {emp.setSalary(emp.getSalary()+1250);return emp;});
         map.compute("Emp1",(key, emp)->{
             if(emp!=null){

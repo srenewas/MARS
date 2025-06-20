@@ -23,6 +23,12 @@ public class test {
         System.out.println(l);
 
         int[] a ={5,7,3,2,7,8,22,44,56,77,2,5};
+        List<Double> op = Arrays.stream(a).asDoubleStream().boxed().map(m->m/2.5).collect(Collectors.toList());
+        System.out.println(op);
+
+        int[] aa ={5,7,3,2,7,8,22,44,56,77,2,5};
+        Arrays.stream(aa).boxed().distinct().forEach(System.out::println);
+
         //Arrays.stream(a).filter(c->c%2!=0).forEach(System.out::println);
         //int sum = Arrays.stream(a).sum();
         //System.out.println(sum);
@@ -81,8 +87,8 @@ public class test {
         System.out.println(sss);
 
 
-        int[] aa = {2,5,7,1,3,2};
-        Arrays.stream(aa).average().stream().forEach(System.out::println);
+        int[] aaa = {2,5,7,1,3,2};
+        Arrays.stream(aaa).average().stream().forEach(System.out::println);
 
 
     }
