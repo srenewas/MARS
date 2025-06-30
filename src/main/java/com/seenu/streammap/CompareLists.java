@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 public class CompareLists {
     public static void main(String[] args) {
+        //If Duplicates not a matter
         List<Integer> list1 = Arrays.asList(1, 2, 2, 3);
         List<Integer> list2 = Arrays.asList(2, 1, 3, 2);
 
@@ -16,6 +17,7 @@ public class CompareLists {
                 .equals(list2.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())));
         System.out.println(istrue);
 
+        //If Duplicates Matter
         List<Integer> list3 = Arrays.asList(1, 2, 2, 3);
         List<Integer> list4 = Arrays.asList(2, 1, 3, 2);
          Boolean is = new HashSet(list3).equals(new HashSet(list4));

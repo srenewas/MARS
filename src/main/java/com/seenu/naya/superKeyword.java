@@ -15,7 +15,6 @@ class A extends superKeyword{
 }
 class demo{
     public static void main(String[] args) {
-
         A a = new A(20,20);
     }
 }

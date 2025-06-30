@@ -22,8 +22,8 @@ public class test {
         map.values().stream().map(s->s.getName()).forEach(System.out::println);
 
         System.out.println("\n*********Salary_Based_On_Filter*********");
-        map.values().stream().filter(s->s.getSalary() > 80000).map(s->s.getSalary()).forEach(System.out::println);
-        map.entrySet().stream().map(e->e.getValue()).filter(e->e.getSalary()>70000).forEach(System.out::println);
+        map.values().stream().filter(s->s.getSalary() > 80000).forEach(System.out::println);
+        //map.entrySet().stream().map(e->e.getValue()).filter(e->e.getSalary()>70000).forEach(System.out::println);
 
         System.out.println("\n*********Filter_Based_On_Name*********");
         map.values().stream().filter(s->Objects.nonNull(s.getName())).forEach(System.out::println);
@@ -36,7 +36,7 @@ public class test {
         }).forEach(System.out::println);*/
 
         System.out.println("\n*********Find_Highest_Salary_From_Employee_Object*********");
-        map.values().stream().max(Comparator.comparing(Employee::getSalary)).ifPresent(e ->System.out.println(e.toString()));
+        map.values().stream().max(Comparator.comparing(Employee::getSalary)).stream().forEach(System.out::println);
 
         System.out.println("\n*********Find_Lowest_Salary_From_Employee_Object*********");
         map.values().stream().min(Comparator.comparing(Employee::getSalary)).ifPresent(e->System.out.println(e.toString()));
@@ -46,6 +46,8 @@ public class test {
 
         System.out.println("\n*********Sorting_Based_On_Department*********");
         map.values().stream().sorted(Comparator.comparing(Employee::getDepartment)).forEach(System.out::println);
+        map.values().stream().sorted(Comparator.comparing(Employee::getDepartment).reversed()).forEach(System.out::println);
+        map.values().stream().filter(f->f.getDepartment().startsWith("JAVA")).collect(Collectors.groupingBy(Employee::getDepartment));
 
         System.out.println("\n*********Salary in descending order*********");
         map.values().stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).forEach(System.out::println);
@@ -54,7 +56,7 @@ public class test {
         System.out.println("\n*********Grouping by department*********");
         Map<String, List<Employee>> m = map.values().stream().collect(Collectors.groupingBy(Employee::getDepartment));
         System.out.println(m);
-        m.forEach((k,v)->{System.out.println(k+":"+v);});
+        m.forEach((k,v)->{System.out.println(k+"==>"+v);});
 
         System.out.println("\n*********Compute the Employee Object*********");
         map.computeIfPresent("Emp4",(key,emp)-> {emp.setSalary(emp.getSalary()+1250);return emp;});
@@ -66,7 +68,7 @@ public class test {
             return emp;
         });
 
-        map.computeIfAbsent("Emp6",key-> new Employee(106,"Suhas",60000.0,"Minitor"));
+        map.computeIfAbsent("Emp6",val-> new Employee(106,"Suhas",60000.0,"Minitor"));
 
         map.forEach((key,value)->System.out.println(key+" ==> "+value));
 
