@@ -12,7 +12,11 @@ public class Singleton {
     // Step 3: Provide a public static method to get the instance
     public static Singleton getInstance() {
         if (instance == null) {
-            instance = new Singleton();
+            synchronized (Singleton.class){
+               if (instance==null){
+                   instance=new Singleton();
+               }
+            }
         }
         return instance;
     }

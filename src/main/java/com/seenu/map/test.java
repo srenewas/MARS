@@ -52,6 +52,7 @@ public class test {
         System.out.println("\n*********Salary in descending order*********");
         map.values().stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).forEach(System.out::println);
         map.values().stream().sorted(Comparator.comparing(Employee::getName).reversed()).forEach(System.out::println);
+        map.values().stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
 
         System.out.println("\n*********Grouping by department*********");
         Map<String, List<Employee>> m = map.values().stream().collect(Collectors.groupingBy(Employee::getDepartment));
