@@ -25,6 +25,7 @@ final class test {
 
 
         int[] a ={2,4,5,1,7,8,9,2,5,6,1,4,2};
+        Arrays.stream(a).max().stream().forEach(System.out::println);
 
 
         int[] input = {0, 4, 0, 0, 0, 6, 7, 8, 0, 5, 7, 8};
