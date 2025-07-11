@@ -1,6 +1,8 @@
 package com.seenu.map;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class test {
@@ -12,7 +14,10 @@ public class test {
         map.put("Emp4",new Employee(104,"sujju",6000.00,"Linux"));
         map.put("Emp5",new Employee(105,"Danny",65000.00,"Devops"));
 
-        System.out.println("*********Values*********");
+        System.out.println("******Testing*****");
+
+
+        System.out.println("\n*********Values*********");
         map.entrySet().stream().map(s->s.getValue()).forEach(System.out::println);
 
         System.out.println("\n*********Keys*********");
@@ -23,7 +28,6 @@ public class test {
 
         System.out.println("\n*********Salary_Based_On_Filter*********");
         map.values().stream().filter(s->s.getSalary() > 80000).forEach(System.out::println);
-        //map.entrySet().stream().map(e->e.getValue()).filter(e->e.getSalary()>70000).forEach(System.out::println);
 
         System.out.println("\n*********Filter_Based_On_Name*********");
         map.values().stream().filter(s->Objects.nonNull(s.getName())).forEach(System.out::println);

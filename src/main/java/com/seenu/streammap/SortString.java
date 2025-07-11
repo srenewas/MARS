@@ -14,5 +14,7 @@ public class SortString {
         String str = "seenu";
         String se = str.chars().mapToObj(c->(char)c).sorted().map(String::valueOf).collect(Collectors.joining());
         System.out.println(se);
+
+        
     }
 }
