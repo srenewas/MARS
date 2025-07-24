@@ -1,7 +1,9 @@
 package com.seenu.Anagram;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.seenu.map.Employee;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class HomeMate {
     private String name;
@@ -52,7 +54,7 @@ public class HomeMate {
         list.add(new HomeMate("Sujju",25,65000.0));
         list.add(new HomeMate("Seenu",30,265000.0));
         list.add(new HomeMate("Buddodu",1,5000.0));
-        list.add(new HomeMate("Rexy",20,65000.0));
+        list.add(new HomeMate("Seenu",20,65000.0));
 
         list.stream().forEach(System.out::println);
         System.out.println("--------------------------------");
@@ -61,6 +63,7 @@ public class HomeMate {
         list.stream().peek(p->p.setSalary(p.getSalary()+5000)).forEach(System.out::println);
         System.out.println("--------------------------------");
         list.stream().map(m->m.getName()).forEach(System.out::println);
+        System.out.println("--------------------------------");
 
 
     }

@@ -33,7 +33,7 @@ public class retrieveRepeatedString {
                 .stream()
                 .filter(e->e.getValue()>1)
                 .count();
-        System.out.println(lo);
+        System.out.println("Result : "+lo);
 
 
 

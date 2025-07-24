@@ -1,4 +1,4 @@
-package com.seenu.naya;
+package com.seenu.DSA;
 
 import java.util.stream.IntStream;
 
