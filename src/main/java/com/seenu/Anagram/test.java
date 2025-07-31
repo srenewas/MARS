@@ -1,6 +1,7 @@
 package com.seenu.Anagram;
 
 
+import javax.crypto.spec.PSource;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -16,7 +17,7 @@ final class test {
     public static void main(String[] args) {
         List<String> list = Arrays.asList("apple", "banana", "apple", "orange", "banana", "apple", "kiwi");
 
-
+        
 
         List<Integer> list1 = Arrays.asList(1, 2, 2, 3,2,2,2,5);
         List<Integer> list2 = Arrays.asList(2, 1, 3, 2);
@@ -24,7 +25,6 @@ final class test {
 
 
         int[] a ={2,4,5,1,7,8,9,2,5,6,1,4,2};
-
 
 
 
@@ -52,11 +52,14 @@ final class test {
 
 
 
+
         //Reverse Int
         int i = 234;
 
+
         //Palindrome
         String ss = "madam";
+
 
 
         int ii = 11211;
@@ -66,6 +69,17 @@ final class test {
 
         String x = "abcdefghijabc";
 
+
+        String b = "swiss";
+        String map  = b.chars()
+                .mapToObj(m->String.valueOf((char)m))
+                .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(f->f.getValue()==1)
+                .map(Map.Entry::getKey)
+                .findFirst().orElseThrow();
+        System.out.println(map);
 
     }
 }

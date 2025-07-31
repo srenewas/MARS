@@ -2,7 +2,9 @@ package com.seenu.Anagram;
 
 import com.seenu.map.Employee;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class HomeMate {
@@ -65,6 +67,22 @@ public class HomeMate {
         list.stream().map(m->m.getName()).forEach(System.out::println);
         System.out.println("--------------------------------");
 
+        list.stream()
+                .collect(Collectors.toMap(
+                        HomeMate::getName,
+                        l->l,
+                        (k,v)->k,
+                        LinkedHashMap::new
+                )).forEach((k,v)->System.out.println(k+"-->"+v));
+
+        System.out.println("<-------------$$$$$$------------->");
+        list.stream()
+                .collect(Collectors.toMap(
+                        HomeMate::getName,
+                        home->home,
+                        (k,v)->k,
+                        LinkedHashMap::new
+                )).forEach((k,v)->System.out.println(k+"-->"+v));
 
     }
 }

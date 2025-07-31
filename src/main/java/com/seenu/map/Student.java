@@ -2,6 +2,7 @@ package com.seenu.map;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Student {
     int id;
@@ -58,13 +59,28 @@ public class Student {
                 '}';
     }
 
+    /*public static boolean isprime(int n){
+        if(n<=1) return false;
+        if(n%2==0) return false;
+        if (n==2) return true;
+
+        for (int i=3;i<=Math.sqrt(n);i+=2){
+            if (n%i==0) return false;
+        }
+        return true;
+    }*/
+    private static boolean isPrime(int number){
+        if (number<=0) return false;
+        return IntStream.rangeClosed(2,(int)Math.sqrt(number)).allMatch(n->number%n!=0);
+    }
+
     public static void main(String[] args) {
         List<Student> student = new ArrayList<>();
-        student.add(new Student(101,"Seenu","Java",95000.0));
-        student.add(new Student(102,"Sujju","Linux",75000.0));
-        student.add(new Student(103,"Buddu","Java",85000.0));
-        student.add(new Student(104,"Dany","Devops",65000.0));
-        student.add(new Student(105,"Rexy","Linux",25000.0));
+        student.add(new Student(23,"Seenu","Java",95000.0));
+        student.add(new Student(2,"Sujju","Linux",75000.0));
+        student.add(new Student(22,"Buddu","Java",85000.0));
+        student.add(new Student(7,"Dany","Devops",65000.0));
+        student.add(new Student(13,"Rexy","Linux",25000.0));
         student.add(new Student(106,"Mummy","Java",15000.0));
 
         student.stream().forEach(System.out::println);
@@ -94,5 +110,15 @@ public class Student {
                         (k,v)->k,
                         LinkedHashMap::new
                 )).forEach((k,v)->System.out.println(k+"-->"+v));
+
+        System.out.println("\n------------------Prime_Numbers------------------");
+        /*student.stream()
+                .filter(f->isprime(f.getId()))
+                .forEach(System.out::println);*/
+
+        System.out.println("\n------------------Prime_Numbers------------------");
+        student.stream()
+                .filter(f->isPrime(f.getId()))
+                .forEach(System.out::println);
     }
 }

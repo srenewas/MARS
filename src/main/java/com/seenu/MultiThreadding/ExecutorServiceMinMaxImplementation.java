@@ -3,8 +3,8 @@ package com.seenu.MultiThreadding;
 import java.util.concurrent.*;
 
 public class ExecutorServiceMinMaxImplementation {
-    public static void main(String[] args) {
-        ExecutorService executorService = new ThreadPoolExecutor(3,10,60L, TimeUnit.SECONDS,new LinkedBlockingDeque<>());
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService executorService = new ThreadPoolExecutor(3,10,30L, TimeUnit.SECONDS,new LinkedBlockingDeque<>());
         for (int i = 1; i <= 20; i++) {
             int taskId = i;
             executorService.submit(() -> {

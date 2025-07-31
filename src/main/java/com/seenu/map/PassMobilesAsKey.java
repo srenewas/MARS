@@ -40,8 +40,8 @@ public class PassMobilesAsKey {
         PassMobilesAsKey p1 = new PassMobilesAsKey("Sony",1,"Xperia");
         PassMobilesAsKey p2 = new PassMobilesAsKey("Sony",1,"Xperia");
         Map<PassMobilesAsKey, String> map = new HashMap<>();
-        map.put(p1,"Seenu");
-        //map.entrySet().stream().forEach(System.out::println);
+        map.put(p1,"Seenu_Passing_as_Value");
+        map.entrySet().stream().forEach(System.out::println);
         System.out.println(map.get(p2));
 
     }

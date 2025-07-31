@@ -20,7 +20,7 @@ public class CombinationSum {
     }
 
     public static void main(String[] args) {
-            int[] candidates = {1, 3, 6, 7};
+            int[] candidates = {1, 3, 6, 7,2};
             int target = 7;
             List<List<Integer>> result = new ArrayList<>();
             backtrack(candidates,target,0, new ArrayList<>(),result);
