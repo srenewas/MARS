@@ -18,6 +18,6 @@ public class FirstNonRepeating {
                 .findFirst()
                 .orElseThrow();
 
-        System.out.println("First non-repeating character: " + result.getKey());
+        System.out.println("First non_repeating character: " + result.getKey());
     }
 }

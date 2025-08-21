@@ -1,4 +1,4 @@
-package com.seenu.DSA;
+package com.seenu.Palindroms;
 
 public class LongestPalindrome {
     public static void main(String[] args) {
@@ -35,4 +35,5 @@ public class LongestPalindrome {
         return s.substring(start, end + 1);
     }
 }
-
+// Output: aba
+//         bb

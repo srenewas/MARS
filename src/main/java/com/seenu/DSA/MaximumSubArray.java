@@ -25,4 +25,5 @@ public class MaximumSubArray {
         = 1      ✅
         maxSoFar = Math.max(maxSoFar, currMax)
          = Math.max(-2, 1)
-         = 1*/
+         = 1
+         */

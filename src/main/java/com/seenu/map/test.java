@@ -41,6 +41,7 @@ public class test {
 
         System.out.println("\n*********Find_Highest_Salary_From_Employee_Object*********");
         map.values().stream().max(Comparator.comparing(Employee::getSalary)).stream().forEach(System.out::println);
+        map.values().stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.maxBy(Comparator.comparing(Employee::getSalary)))).entrySet().stream().forEach(System.out::println);
 
         System.out.println("\n*********Find_Lowest_Salary_From_Employee_Object*********");
         map.values().stream().min(Comparator.comparing(Employee::getSalary)).ifPresent(e->System.out.println(e.toString()));

@@ -1,5 +1,7 @@
 package com.seenu.map;
 
+import org.springframework.data.annotation.Transient;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -8,6 +10,8 @@ public class Student {
     int id;
     String name;
     String department;
+
+    @Transient
     Double salary;
 
     public Student(int id, String name, String department, Double salary) {
@@ -59,16 +63,6 @@ public class Student {
                 '}';
     }
 
-    /*public static boolean isprime(int n){
-        if(n<=1) return false;
-        if(n%2==0) return false;
-        if (n==2) return true;
-
-        for (int i=3;i<=Math.sqrt(n);i+=2){
-            if (n%i==0) return false;
-        }
-        return true;
-    }*/
     private static boolean isPrime(int number){
         if (number<=0) return false;
         return IntStream.rangeClosed(2,(int)Math.sqrt(number)).allMatch(n->number%n!=0);
@@ -101,15 +95,6 @@ public class Student {
                         LinkedHashMap::new  // Optional (If need Insertion Order)
                 )).forEach((k,v)->System.out.println(k+"==>"+v));
 
-        System.out.println("\n------------------------------------");
-
-        student.stream()
-                .collect(Collectors.toMap(
-                        Student::getName,
-                        st->st,
-                        (k,v)->k,
-                        LinkedHashMap::new
-                )).forEach((k,v)->System.out.println(k+"-->"+v));
 
         System.out.println("\n------------------Prime_Numbers------------------");
         /*student.stream()
@@ -120,5 +105,34 @@ public class Student {
         student.stream()
                 .filter(f->isPrime(f.getId()))
                 .forEach(System.out::println);
+
+        System.out.println("\n------------------List<List<Employeee>>------------------");
+        List<Student> list1 = Arrays.asList(
+                new Student(23,"Seenu","Java",95000.0),
+                new Student(24,"Reenu","Linux",95000.0),
+                new Student(25,"Feenu","Java",95000.0)
+        );
+        List<Student> list2 = Arrays.asList(
+                new Student(23,"Sujju","Java",95000.0),
+                new Student(24,"Seenu","Linux",95000.0),
+                new Student(25,"Sree","Java",95000.0)
+        );
+        List<List<Student>> employeeLists = Arrays.asList(list1, list2);
+
+        List<Student> sortedEmployees = employeeLists.stream()
+                .flatMap(List::stream)
+                .sorted(Comparator.comparing(Student::getDepartment)
+                        .thenComparing(Student::getName))
+                .collect(Collectors.toList());
+
+        sortedEmployees.forEach(System.out::println);
+
+        System.out.println("\n------------------FInd_Second_Highest_salary------------------");
+        Student result = student.stream()
+                .sorted(Comparator.comparing(Student::getSalary).reversed())
+                .skip(1)
+                .findFirst()
+                .orElseThrow();
+        System.out.println(result);
     }
 }

@@ -11,7 +11,6 @@ public class FindOddEvenNumber {
         List<Integer> l1 = all.stream().filter(s->s%2!=0).collect(Collectors.toList()); // This will print only Odd Numbers
         System.out.println(l1);
 
-
         System.out.println("****************Only_Even_Numbers****************");
         List<Integer> l2 = all.stream().filter(s->s%2==0).collect(Collectors.toList()); // This will print only Even Numbers
         System.out.println(l2);

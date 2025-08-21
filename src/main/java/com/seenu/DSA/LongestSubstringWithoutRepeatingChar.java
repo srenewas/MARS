@@ -15,6 +15,6 @@ public class LongestSubstringWithoutRepeatingChar {
                 .filter(f->f.getValue()>1)
                 .map(Map.Entry::getKey)
                 .count();
-        System.out.println(l);
+        System.out.println(l); // 3
     }
 }

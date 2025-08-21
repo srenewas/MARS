@@ -12,7 +12,7 @@ public class FunctionExample {
         System.out.println(biFunction.apply(10,30));
 
      // 2. Predicate<T> – takes input T, returns boolean
-        Predicate<Integer> predicate = num->num/5==2;
+        Predicate<Integer> predicate = (num)->num/5==2;
         System.out.println(predicate.test(5));
 
         BiPredicate<Integer, Integer> biPredicate = (a,b)-> a+b==30;

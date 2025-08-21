@@ -15,3 +15,8 @@ public class PairSumStream {
 
     }
 }
+/*      0 1
+        1 7
+        2 3
+        4 6
+*/

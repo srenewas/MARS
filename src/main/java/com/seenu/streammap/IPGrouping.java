@@ -14,9 +14,12 @@ public class IPGrouping {
                         LinkedHashMap::new,                         // Preserve insertion order
                         Collectors.mapping(arr -> arr[0], Collectors.toList()) // Value = List of IPs
                 ));
-
         result.forEach((country, ipList) ->
                 System.out.println(country + ": " + String.join(" ", ipList)));
     }
 }
-
+/*
+USA: IP1 IP3
+India: IP2 IP5
+UK: IP4
+ */

@@ -1,6 +1,8 @@
 package com.seenu.DSA;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,14 +22,13 @@ public class CombinationSum {
     }
 
     public static void main(String[] args) {
-            int[] candidates = {1, 3, 6, 7,2};
+            int[] candidates = {3, 6, 7,2};
             int target = 7;
             List<List<Integer>> result = new ArrayList<>();
             backtrack(candidates,target,0, new ArrayList<>(),result);
+
             result.stream()
-                    .map(m->m.stream().map(String::valueOf).collect(Collectors.joining(",","[","]")))
                     .forEach(System.out::println);
 
         }
-
     }

@@ -1,5 +1,7 @@
 package com.seenu.map;
 
+import org.springframework.data.annotation.Transient;
+
 public class Employee {
     private int Id;
     private String name;

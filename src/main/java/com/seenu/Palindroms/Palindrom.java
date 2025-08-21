@@ -1,7 +1,4 @@
-package com.seenu.DSA;
-
-import java.util.Arrays;
-import java.util.stream.Stream;
+package com.seenu.Palindroms;
 
 public class Palindrom {
     public static void main(String[] args) {

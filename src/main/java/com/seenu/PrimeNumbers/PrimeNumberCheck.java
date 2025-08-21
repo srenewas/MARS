@@ -1,4 +1,4 @@
-package com.seenu.DSA;
+package com.seenu.PrimeNumbers;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;

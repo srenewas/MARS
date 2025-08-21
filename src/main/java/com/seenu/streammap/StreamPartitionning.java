@@ -12,3 +12,6 @@ public class StreamPartitionning {
         System.out.println("Odd :"+partition.get(false));
     }
 }
+/*Even :[2, 8]
+  Odd :[5, 7, 9]
+ */

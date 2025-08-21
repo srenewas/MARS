@@ -5,26 +5,26 @@ import java.util.Stack;
 public class ValidParentheses {
     public static boolean isValidParentheses(String s ){
         Stack<Character> stack = new Stack<>();
-        for (char ch : s.toCharArray()){
+        for (char ch : s.toCharArray()){  // loop through each character
+            // 1️⃣ If opening bracket → push to stack
             if (ch=='{' || ch=='(' || ch=='['){
                 stack.push(ch);
             }else{
-                if (stack.empty()) return false;
-                char top = stack.pop();
-                if (ch==')' && top !='(' ||
-                        ch=='}' && top !='{' ||
-                        ch==']' && top !='['
-                ) return false;
+                // 2️⃣ If closing bracket → check conditions
+                if (stack.empty()) return false; // no matching opening bracket
+                char top = stack.pop(); // take the last opened bracket
+                // 3️⃣ Check if it matches properly
+                if (ch==')' && top !='(' || ch=='}' && top !='{' || ch==']' && top !='[') return false; // mismatch
             }
         }
-        return stack.empty(); // Should be empty if all brackets matched
+        // 4️⃣ If stack is empty → all matched
+        return stack.empty();
     }
-
     public static void main(String[] args) {
-        System.out.println(isValidParentheses("()"));
-        System.out.println(isValidParentheses("{[]}"));
-        System.out.println(isValidParentheses("([{}])"));
-        System.out.println(isValidParentheses("{)"));
+        System.out.println(isValidParentheses("()")); //true
+        System.out.println(isValidParentheses("{[]}"));  //true
+        System.out.println(isValidParentheses("([{}])")); //true
+        System.out.println(isValidParentheses("{)")); //false
 
     }
 }

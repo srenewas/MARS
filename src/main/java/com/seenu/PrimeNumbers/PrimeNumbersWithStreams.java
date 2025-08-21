@@ -1,6 +1,8 @@
-package com.seenu.DSA;
+package com.seenu.PrimeNumbers;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PrimeNumbersWithStreams {
@@ -11,9 +13,11 @@ public class PrimeNumbersWithStreams {
     }
     public static void main(String[] args) {
         int[] a = {2, 5, 4, 7, 9, 8, 13, 21, 23};
-        Arrays.stream(a)
+        List<Integer> list = Arrays.stream(a)
+                .boxed()
                 .filter(PrimeNumbersWithStreams::isPrime)
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
+        System.out.println(list);
     }
 }
 

@@ -1,7 +1,18 @@
 package com.seenu.naya;
+
+import java.util.stream.IntStream;
+
 /*trying to find index pairs in the array nums where the sum of the two elements equals the target (which is 8).
 The output shows index pairs like [1, 4] where nums[1] + nums[4] == 8.*/
 public class index_pairs {
+    private static void usingStreams(int[] nums, int target){
+        IntStream.range(0, nums.length)
+                .boxed()
+                .flatMap(i -> IntStream.range(i + 1, nums.length)
+                        .filter(j -> nums[i] + nums[j] == target)
+                        .mapToObj(j -> i+"-"+j)) // encode (i,j) as a single int
+                .forEach(System.out::println);
+    }
     public static void main(String[] args) {
         int [] nums = {2, 4, 7, 9, 4, 1, 6, 0};
         int target =8;
@@ -13,6 +24,7 @@ public class index_pairs {
                 }
             }
         }
+        index_pairs.usingStreams(nums,target);
     }
 }
 /*

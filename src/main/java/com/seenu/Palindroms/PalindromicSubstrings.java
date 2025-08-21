@@ -1,4 +1,4 @@
-package com.seenu.DSA;
+package com.seenu.Palindroms;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,7 +8,7 @@ public class PalindromicSubstrings {
     public static void main(String[] args) {
         String input = "abba";
         Set<String> palindromes = findAllPalindromicSubstrings(input);
-        System.out.println("Palindromic substrings: " + palindromes);
+        System.out.println("Palindromic substrings: " + palindromes);   // Palindromic substrings: [bb, a, b, abba]
     }
     private static void expandAroundCenter(String s, int left, int right, Set<String> result) {
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {

@@ -1,4 +1,4 @@
-package com.seenu.DSA;
+package com.seenu.Palindroms;
 
 public class PalindromValid {
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class PalindromValid {
         String cleaned = s.replaceAll("[^A-Za-z0-9]","").toLowerCase();
         System.out.println(cleaned);
 
-        String reversed = new StringBuilder(cleaned).reverse().toString();
+        String reversed = new StringBuffer(cleaned).reverse().toString();
         System.out.println(reversed);
         System.out.println(cleaned.equals(reversed));
     }
